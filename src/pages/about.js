@@ -25,7 +25,7 @@ const AboutPage = () =>
     <p>How?</p>
     <p>
       <i>First</i>, we need to identify the demand. One of the approach is to
-      scoure the internet to find on-demand products from enthusiasts ranging
+      scour the internet to find on-demand products from enthusiasts ranging
       from Audiophiles to Fishing.
     </p>
     <p>
