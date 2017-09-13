@@ -8,32 +8,14 @@ import SurveyIcon from "react-icons/lib/ti/th-large-outline";
 import AboutIcon from "react-icons/lib/ti/info-large-outline";
 import SearchIcon from "react-icons/lib/ti/zoom-outline";
 import "./index.css";
+import logo from "../../data/images/logo-sample.jpg";
 
 const Header = () => (
-  <div
-    style={{
-      background: "navy",
-      marginBottom: "0.45rem"
-    }}
-  >
-    <div
-      style={{
-        padding: "1.45rem 1.0875rem"
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: "white",
-            textDecoration: "none"
-          }}
-        >
-          Mobcut
-        </Link>
-      </h1>
-    </div>
-  </div>
+  <header className="tc pv4 pv5-ns">
+    <img src={logo} className="br-100 pa1 ba b--black-10 h3 w3" alt="avatar" />
+    <h1 className="f5 f4-ns fw6 mid-gray">Jasper Whitehouse</h1>
+    <h2 className="f6 gray fw2 ttu tracked">Los Angeles</h2>
+  </header>
 );
 
 const Footer = () => (

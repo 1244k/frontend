@@ -10,18 +10,22 @@
     "gatsby-plugin-react-helmet": "^1.0.6",
     "gatsby-source-filesystem": "^1.4.12",
     "gatsby-transformer-remark": "^1.7.7",
-    "react-icons": "^2.2.5"
+    "react-icons": "^2.2.5",
+    "tachyons": "^4.8.1",
+    "tachyons-cli": "^1.0.11"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format":
+      "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "tachyons src/css/app.css > src/layouts/index.css --minify",
+    "prestart": "npm run css",
+    "prebuild": "npm run css"
   },
   "devDependencies": {
     "prettier": "^1.5.2"
