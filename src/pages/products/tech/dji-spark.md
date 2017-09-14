@@ -1,7 +1,7 @@
 ---
 title: DJI Spark
 id: "2"
-image: "/images/dji.jpg"
+image: "images/dji_spark_1.png"
 price: 4898.00
 path: "/tech/dji-spark"
 ---

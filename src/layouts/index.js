@@ -8,86 +8,51 @@ import SurveyIcon from "react-icons/lib/ti/th-large-outline";
 import AboutIcon from "react-icons/lib/ti/info-large-outline";
 import SearchIcon from "react-icons/lib/ti/zoom-outline";
 import "./index.css";
-import logo from "../../data/images/logo-sample.jpg";
 
 const Header = () => (
-  <header className="tc pv4 pv5-ns">
-    <img src={logo} className="br-100 pa1 ba b--black-10 h3 w3" alt="avatar" />
-    <h1 className="f5 f4-ns fw6 mid-gray">Jasper Whitehouse</h1>
-    <h2 className="f6 gray fw2 ttu tracked">Los Angeles</h2>
+  <header className="bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
+    <nav className="f6 fw6 ttu tracked">
+      <a className="link dim white dib mr3" href="#" title="Products">
+        Products
+      </a>
+      <a className="link dim white dib mr3" href="#" title="Talk">
+        Talk
+      </a>
+      <a className="link dim white dib mr3" href="#" title="Surveys">
+        Surveys
+      </a>
+      <a className="link dim white dib" href="#" title="About">
+        About
+      </a>
+    </nav>
   </header>
 );
 
 const Footer = () => (
-  <div
-    style={{
-      background: "black",
-      flex: "1 0 auto"
-    }}
-  >
-    <div
-      style={{
-        margin: "0 auto",
-        maxWidth: 960,
-        padding: "1.45rem 1.0875rem"
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: "white",
-            textDecoration: "none"
-          }}
-        >
-          <ProductIcon />
-        </Link>
-        <Link
-          to="/"
-          style={{
-            color: "white",
-            textDecoration: "none"
-          }}
-        >
-          <SearchIcon />
-        </Link>
-        <Link
-          to="/"
-          style={{
-            color: "white",
-            textDecoration: "none"
-          }}
-        />
-        <Link
-          to="/categories"
-          style={{
-            color: "white",
-            textDecoration: "none"
-          }}
-        >
-          <CategoryIcon />
-        </Link>
-        <Link
-          to="/"
-          style={{
-            color: "white",
-            textDecoration: "none"
-          }}
-        >
-          <SurveyIcon />
-        </Link>
-        <Link
-          to="/about"
-          style={{
-            color: "white",
-            textDecoration: "none"
-          }}
-        >
-          <AboutIcon />
-        </Link>
-      </h1>
+  <footer className="pa4 pa5-l black-70 bt b--black-10">
+    <small className="f6 db tc">
+      © 2017 <b className="ttu">Moredrop Commerce</b>, All Rights Reserved
+    </small>
+    <div className="tc mt3">
+      <a
+        href="/language/"
+        title="Language"
+        className="f6 dib ph2 link mid-gray dim"
+      >
+        Language
+      </a>
+      <a href="/terms/" title="Terms" className="f6 dib ph2 link mid-gray dim">
+        Terms of Use
+      </a>
+      <a
+        href="/privacy/"
+        title="Privacy"
+        className="f6 dib ph2 link mid-gray dim"
+      >
+        Privacy
+      </a>
     </div>
-  </div>
+  </footer>
 );
 
 const TemplateWrapper = ({ children }) => (
@@ -105,17 +70,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header />
-    <div
-      style={{
-        margin: "0 auto",
-        maxWidth: 960,
-        padding: "0px 1.0875rem 1.45rem",
-        paddingTop: 0,
-        flex: "1 0 auto"
-      }}
-    >
-      {children()}
-    </div>
+    <section>{children()}</section>
     <Footer />
   </div>
 );

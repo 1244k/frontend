@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Mobcut's frontend`
   },
+  pathPrefix: `/`,
   plugins: [
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
