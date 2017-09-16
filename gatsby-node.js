@@ -16,8 +16,17 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           id
           frontmatter {
             title
-            id
-            image
+            id          
+            thumbnail {
+              childImageSharp {
+                responsiveSizes(maxWidth: 400) {
+                  src
+                  srcSet
+                  sizes
+                  base64
+                }
+              }
+            }
             price
             path
             description

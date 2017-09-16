@@ -11,9 +11,7 @@ export default function Template({
     <div className="blog-post-container">
       <Helmet title={`${product.frontmatter.title}`} />
       <div className="blog-post">
-        <h1>
-          {product.frontmatter.title}
-        </h1>
+        <h1>{product.frontmatter.title}</h1>
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: product.html }}
@@ -30,7 +28,16 @@ export const pageQuery = graphql`
       frontmatter {
         title
         id
-        image
+        thumbnail {
+          childImageSharp {
+            responsiveSizes(maxWidth: 400) {
+              src
+              srcSet
+              sizes
+              base64
+            }
+          }
+        }
         price
         path
         description
