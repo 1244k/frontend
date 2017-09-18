@@ -4,46 +4,56 @@ import Link from "gatsby-link";
 export default function Index({ data }) {
   const { edges: products } = data.allMarkdownRemark;
   return (
-    <main className="cf w-100">
+    <main className="flex mw7 center justify-between">
       {products
         .filter(product => product.node.frontmatter.title.length > 0)
         .map(({ node: product }) => {
           return (
-            <div className="fl w-50 w-25-m w-20-l pa2">
+            <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw7 flex-auto">
               <Link to={product.frontmatter.path} className="db link dim tc">
                 <img
+                  key={
+                    product.frontmatter.thumbnail.childImageSharp
+                      .responsiveSizes.src
+                  }
                   src={
                     product.frontmatter.thumbnail.childImageSharp
                       .responsiveSizes.src
                   }
-                  width="100%"
-                  data-src={
-                    product.frontmatter.thumbnail.childImageSharp
-                      .responsiveSizes.src
-                  }
-                  data-srcset={
+                  srcSet={
                     product.frontmatter.thumbnail.childImageSharp
                       .responsiveSizes.srcSet
                   }
-                  data-sizes={
+                  sizes={
                     product.frontmatter.thumbnail.childImageSharp
                       .responsiveSizes.sizes
                   }
-                  className="w-100 db outline black-10 lazyload"
+                  width="100%"
+                  className="db w-100 br2 br--top"
                   alt={product.frontmatter.title}
                 />
-                <dl className="mt2 f6 lh-copy">
-                  <dt className="clip">{product.frontmatter.title}</dt>
-                  <dd className="ml0 black truncate w-100">
-                    {product.frontmatter.title}
-                  </dd>
-                  <dt className="clip">Artist</dt>
-                  <dd className="ml0 gray truncate w-100">
-                    {product.frontmatter.price}
-                  </dd>
-                </dl>
+                <div className="pa2 ph3-ns pb3-ns">
+                  <div className="dt w-100 mt1">
+                    <div className="dtc">
+                      <h1 className="f5 f4-ns mv0">
+                        {product.frontmatter.title}
+                      </h1>
+                    </div>
+                    <div className="dtc tr">
+                      <h2 className="f5 mv0">
+                        {`RM` +
+                          product.frontmatter.price.toString().slice(0, -2) +
+                          "." +
+                          product.frontmatter.price.toString().slice(-2)}
+                      </h2>
+                    </div>
+                  </div>
+                  <p className="f6 lh-copy measure mt2 mid-gray">
+                    {product.excerpt}
+                  </p>
+                </div>
               </Link>
-            </div>
+            </article>
           );
         })}
     </main>
@@ -62,11 +72,12 @@ export const pageQuery = graphql`
             id
             thumbnail {
               childImageSharp {
-                responsiveSizes(maxWidth: 400) {
+                responsiveSizes {
                   src
                   srcSet
                   sizes
                   base64
+                  aspectRatio
                 }
               }
             }
