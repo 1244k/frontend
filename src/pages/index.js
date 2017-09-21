@@ -9,7 +9,7 @@ export default function Index({ data }) {
         .filter(product => product.node.frontmatter.title.length > 0)
         .map(({ node: product }) => {
           return (
-            <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw7 flex-auto">
+            <article className="br2 ba dark-gray b--black-10 mv4 m0 w-25-l w-50-m w-100-ns mw7 flex-auto-l flex-wrap-ns ma1 avenir">
               <Link to={product.frontmatter.path} className="db link dim tc">
                 <img
                   key={

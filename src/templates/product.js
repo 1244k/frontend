@@ -8,7 +8,7 @@ export default function Template({
 }) {
   const { markdownRemark: product } = data; // data.markdownRemark holds our product data
   return (
-    <div className="blog-post-container">
+    <div className="flex mw7 center avenir">
       <Helmet title={`${product.frontmatter.title}`} />
       <div className="blog-post">
         <h1>{product.frontmatter.title}</h1>
